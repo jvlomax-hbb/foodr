@@ -1,0 +1,29 @@
+- model: units.unit
+  fields:
+    name: "litre"
+    symbol: "L"
+    category: 1
+
+- model: units.unit
+  fields:
+    name: "Decilitre"
+    symbol: "dl"
+    category: 1
+
+- model: units.unit
+  fields:
+    name: "Millilitre"
+    symbol: "ml"
+    category: 1
+
+- model: units.unit
+  fields:
+    name: "Gram"
+    symbol: "g"
+    category: 2
+
+- model: units.unit
+  fields:
+    name: "Kilogram"
+    symbol: "kg"
+    category: 2

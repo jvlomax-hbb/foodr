@@ -1,0 +1,14 @@
+- model: units.unitCategory
+  pk: 1
+  fields:
+    name: Volume
+
+- model: units.unitCategory
+  pk: 2
+  fields:
+    name: Weight
+
+- model: units.unitCategory
+  pk: 3
+  fields:
+    name: Length

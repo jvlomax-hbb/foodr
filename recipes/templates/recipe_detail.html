@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+        <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Inter">
+        <style>
+      body {
+        font-family: 'Inter', serif;
+
+      }
+        </style>
+</head>
+
+    <body style="margin-top: 5em;">
+    <div class="content">
+    <div class="columns">
+        <div class="column is-one-third" style="margin-left: 2em">
+            <div class="content">
+            <h2 class="title">Ingredients</h2>
+            {% if object.ingredient_groups.all.count > 0 %}
+                {% for group in object.ingredient_groups.all %}
+                     <h3 class="subtitle">{{ group.title }}</h3>
+                    <ul>
+                    {% for ingredient in group.group_ingredients.all %}
+                        <li>{{ ingredient.name }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endfor %}
+            {% else %}
+                <ul>
+                    {% for ingredient in object.ingredients.all %}
+                        <li class="p-2">{{ ingredient.name }}</li>
+                    {% endfor %}
+                    </ul>
+            {% endif %}
+            </div>
+        </div>
+        <div class="column">
+            <h1 class="title">{{ object.title }}</h1>
+            {% if object.image %}
+                <figure class="image">
+                    <img src="{{ object.image.url }}" alt="My image" style="width: 50%;">
+                </figure>
+            {% endif %}
+            <p>Source: <a href="{{ object.source_url }}">{{ object.source }}</a></p>
+            <h3>{{ oject.description }}</h3>
+
+            <h2 class="subtitle">Directions</h2>
+
+
+                {% for step in object.steps.all %}
+                <div class="block">
+                    <p>{{ step.description }}</p>
+                <hr/>
+                </div>
+                {% endfor %}
+        </div>
+    </div>
+    </body>
+</html>
